@@ -1,10 +1,10 @@
 "use client";
 import { useEffect } from "react";
 
-import Header from "@/Header";
-import ExperienceEducation from "@/ExperienceEducation";
-import Projects from "@/Project";
-import AboutMe from "@/AboutMe"
+import Header from "@/app/Header";
+import ExperienceEducation from "@/app/ExperienceEducation";
+import Projects from "@/app/Project";
+import AboutMe from "@/app/AboutMe"
 
 
 export default function Home() {
