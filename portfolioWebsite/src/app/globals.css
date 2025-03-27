@@ -1,0 +1,73 @@
+@import "tailwindcss";
+/* NavBar styles */
+.navbar {
+  height: 60px;
+  width: screen;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Ensure the navbar is on top */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-container {
+
+  gap: 40px;
+  height: 60px;
+  color: white;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+
+}
+
+.nav-link {
+  padding: 0 20px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link.active {
+  background-color: #7c0000; /* Active state */
+  color: white !important;
+  height: 60px;
+  width: 25%;
+ 
+}
+
+.navbar-scrolled {
+  background-color: #bc4d4d;
+  transition: background-color 0.3s ease;
+}
+
+/* About Me Section */
+/*
+.AboutMeHeader {
+  display: flex; /* Fixed incorrect display value 
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+.AboutMeHeader-container{
+display:flex;
+}
+
+.AboutMeBody {
+  display: flex; /* Fixed incorrect display value 
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+*/
+
