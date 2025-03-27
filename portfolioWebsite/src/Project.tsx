@@ -83,7 +83,7 @@ export default function Projects() {
                                     <li>TypeScript </li>
                                     <li>HTMl</li>
                                     <li>SQL</li>
-                                    <li>ReactJs</li>
+                                    <li>NextJs</li>
                                     <li>ReactBootStrap</li>
                                     <li>CSS</li>
                                     <li>Cpanel </li>
