@@ -48,11 +48,10 @@ export default function Projects() {
         <div className="text-white">
       <Script src="https://kit.fontawesome.com/da5c5ed2e2.js" strategy="afterInteractive" />
       {/* Projects Section */}
-      <section id ='Projects'></section>
-
-           <section className="p-20 bg-transparent">
-            <h3 className="text-6xl font-semibold mb-6 underline underline-offset-12 decoration-white ">Projects</h3>
-                <div className = " bg-black border-3 border-white border-offset-20  grid grid-cols-1  md:grid-cols-2">
+      
+           <section id ='Projects' className="p-20 bg-transparent">
+            <h3 className="text-8xl font-semibold mb-6 underline underline-offset-12 decoration-white ">Projects</h3>
+                <div className = "bg-black border-3 border-white border-offset-20  grid grid-cols-1  md:grid-cols-2">
                     <div >
                         {/* Photots of project*/}
                         <div className="flex justify-center object-contain ">

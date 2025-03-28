@@ -12,17 +12,16 @@ export default function ExperienceEducation() {
 
   return (
         
-    <section className="p-20 bg-transparent text-white">
-            <section id ='Experience'></section>
+    <section  id ='Experience' className="p-20 bg-transparent text-white">
 
       {/* Title */}
-      <h2 className="text-6xl font-bold mb-6 underline underline-offset-12 decoration-white" >{sectionTitle} </h2>
+      <h2 className="text-8xl font-bold mb-6 underline underline-offset-12 decoration-white" >{sectionTitle} </h2>
 
       {/* Tab Navigation */}
       <div className="flex space-x-4 border-b border-red-950 mb-6">
         <button
           className={`flex-grow justify center py-2 text-lg font-semibold rounded-t-lg ${
-            activeTab === "experience" ? "bg-red-950 text-white" : "text-gray-400"
+            activeTab === "experience" ? "bg-red-950 text-white" : "text-gray-400 bg-black"
           }`}
           onClick={() => {
             setActiveTab("experience"); 
@@ -35,7 +34,7 @@ export default function ExperienceEducation() {
         </button>
         <button
           className={`flex-grow justify center py-2 text-lg font-semibold rounded-t-lg ${
-            activeTab === "education" ? "bg-red-950 text-white" : "text-gray-400"
+            activeTab === "education" ? "bg-red-950 text-white" : "text-gray-400 bg-black"
           }`}
           onClick={() => {
             setActiveTab("education"); 
