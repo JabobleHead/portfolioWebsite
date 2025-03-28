@@ -49,6 +49,13 @@
   transition: background-color 0.3s ease;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Geist+Sans:wght@400;700&family=Geist+Mono:wght@400;700&display=swap");
+
+:root {
+  --font-geist-sans: "Geist Sans", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
 /* About Me Section */
 /*
 .AboutMeHeader {
