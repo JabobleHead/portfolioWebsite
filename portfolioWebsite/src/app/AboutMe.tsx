@@ -26,15 +26,15 @@ export default function AboutMe() {
                         <br></br>
                         Outside of programming, I enjoy playing video games, working out, hiking, and photography.
                         </p>
-                        <div className="flex space-x-8">
+                        <div className="flex space-x-8 " >
                         <a href="https://github.com/JabobleHead" target="_blank" rel="noopener noreferrer">
-                            <i className="fa-brands fa-github text-5xl"></i>
+                            <i className="fa-brands fa-github text-5xl text-red-900"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/gabriel-dautovi/" target="_blank" rel="noopener noreferrer">
-                            <i className="fa-brands fa-linkedin text-5xl "></i>
+                            <i className="fa-brands fa-linkedin text-5xl text-red-900"></i>
                         </a>
                         <a href="mailto:gabrielDautovi@gmail.com">
-                            <i className="fa-solid fa-envelope text-5xl"></i>
+                            <i className="fa-solid fa-envelope text-5xl text-red-900"></i>
                         </a>
                         </div>
                 </div>

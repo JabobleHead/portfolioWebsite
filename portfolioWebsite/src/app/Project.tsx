@@ -50,7 +50,7 @@ export default function Projects() {
       {/* Projects Section */}
       
            <section id ='Projects' className="p-20 bg-transparent">
-            <h3 className="text-8xl font-semibold mb-6 underline underline-offset-12 decoration-white ">Projects</h3>
+            <h3 className="text-9xl font-semibold mb-6 underline underline-offset-12 decoration-white ">Projects</h3>
                 <div className = "bg-black border-3 border-white border-offset-20  grid grid-cols-1  md:grid-cols-2">
                     <div >
                         {/* Photots of project*/}
