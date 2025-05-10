@@ -9,7 +9,7 @@ export default function AboutMe() {
     return(
         <div>
             {/* About Me Section */}
-            <section id="About Me" className="flex flex-col md:flex-row items-center justify-center p-40 text-white bg-transparent">
+            <section id="About Me" className="flex flex-col md:flex-row items-center justify-center p-40 text-white ">
                 {/* Circular Image */}
                 <img
                     src="/Images/profilePic.JPG" // Replace with your actual image path
