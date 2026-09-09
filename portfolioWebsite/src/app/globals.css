@@ -1,86 +1,182 @@
-
-/* NavBar styles */
-
-.navbar {
-  height: 60px;
-  width: screen;
-  background-color: Black;
-  transition: background-color 0.3s ease;
-  z-index: 1000; /* Ensure the navbar is on top */
-
-}
-
-.navbar-container {
-
-  gap: 40px;
-  height: 60px;
-  color: white;
-  background-color: Black;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-
-}
-
-.nav-link {
-  padding: 0 20px;
-  background-color: Black;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  color: white;
-  display: flex;
-
-}
-
-.nav-link.active {
-  background-color: #7c0000; /* Active state */
-  color: white !important;
-  height: 60px;
-  width: 25%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
- 
-}
-
-.navbar-scrolled {
-  background-color: #470101;
-  transition: background-color 0.3s ease;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Geist+Sans:wght@400;700&family=Geist+Mono:wght@400;700&display=swap");
-
-:root {
-  --font-geist-sans: "Geist Sans", sans-serif;
-  --font-geist-mono: "Geist Mono", monospace;
-}
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/* About Me Section */
 /*
-.AboutMeHeader {
-  display: flex; /* Fixed incorrect display value 
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
-}
-.AboutMeHeader-container{
-display:flex;
-}
-
-.AboutMeBody {
-  display: flex; /* Fixed incorrect display value 
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
-}
+  Dark variant driven by an explicit [data-theme] attribute, with a
+  prefers-color-scheme fallback for the no-JS / no-stored-preference case.
+  The inline script in layout.tsx stamps data-theme before first paint.
 */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+}
 
+/*
+  Palette. Every text-on-background pair below is verified against WCAG 2.1:
+  body text >= 4.5:1, focus rings and interactive borders >= 3:1.
+  Light is the base; dark overrides follow.
+*/
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --surface-raised: #f5f5f4;
+  --border: #d6d3d1;
+  --border-strong: #8c8582;
+  --text: #1c1917;
+  --text-muted: #57534e;
+  --accent: #a3182b;
+  --accent-hover: #8c1121;
+  --accent-contrast: #ffffff;
+  --focus: #8c1121;
+  --shadow: 0 1px 2px rgb(28 25 23 / 0.06), 0 8px 24px -12px rgb(28 25 23 / 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0b0d;
+    --surface: #1a1416;
+    --surface-raised: #241b1e;
+    --border: #44383b;
+    --border-strong: #78686d;
+    --text: #f5f5f4;
+    --text-muted: #a8a29e;
+    --accent: #e0555f;
+    --accent-hover: #f07a82;
+    --accent-contrast: #1a0508;
+    --focus: #ffd166;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.7);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b0b0d;
+  --surface: #1a1416;
+  --surface-raised: #241b1e;
+  --border: #44383b;
+  --border-strong: #78686d;
+  --text: #f5f5f4;
+  --text-muted: #a8a29e;
+  --accent: #e0555f;
+  --accent-hover: #f07a82;
+  --accent-contrast: #1a0508;
+  --focus: #ffd166;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.7);
+}
+
+/*
+  `inline` keeps the var() reference in the generated utility instead of
+  resolving it at build time, so utilities follow the active theme.
+*/
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-focus: var(--focus);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  /*
+    Tailwind's display utilities out-specify the `hidden` attribute, which
+    would leave "hidden" content in the tab order and the a11y tree.
+  */
+  [hidden] {
+    display: none !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Anchor targets clear the sticky header instead of hiding under it. */
+    scroll-padding-top: 5.5rem;
+    color-scheme: light;
+  }
+
+  /* Keeps native UI (scrollbars, form controls) in step with the theme. */
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      color-scheme: dark;
+    }
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /*
+    One global keyboard ring. :focus-visible rather than :focus so a mouse
+    click doesn't leave a ring behind on buttons.
+  */
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-contrast);
+  }
+
+  /* Headings stay readable when wrapped; avoids orphaned words. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  /* Visible only to assistive tech, until focused (see .focusable variant). */
+  .sr-only-focusable:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
