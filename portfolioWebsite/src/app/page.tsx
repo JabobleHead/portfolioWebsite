@@ -1,22 +1,17 @@
-"use client";
-import { useEffect } from "react";
-
-import Header from "@/app/Header";
-import ExperienceEducation from "@/app/ExperienceEducation";
-import Projects from "@/app/Project";
-import AboutMe from "@/app/AboutMe"
-
+import Contact from "@/components/Contact";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
-    
-    <main className="text-black bg-neutral-900">
-      <title>Gabriel Dautovi Protfllio</title>
-      <Header/>
-      <AboutMe/>
-      <ExperienceEducation/>
-      <Projects/>
-    </main>
-
+    <>
+      <Hero />
+      <Experience />
+      <Education />
+      <Projects />
+      <Contact />
+    </>
   );
 }
